@@ -17,15 +17,27 @@
 	<tr>
 		<th class="text-center">Category Name</th>
 		<th class="text-center">Display Order</th>
+		<th class="text-center">Editing</th>
 	</tr>
 	</thead>
 	<tbody>
 		@foreach (var item in Model.OrderBy(u => u.DisplayOrder)) // Model is a list of Category // Order by DisplayOrder
 		{
 			<tr>
-				<td>@item.Name1</td>
-				<td>@item.DisplayOrder</td>
-			</tr>
+				<td class="text-center">@item.Name1</td>
+				<td class="text-center"> @item.DisplayOrder</td>
+				<td>
+					<div class="w-75 btn-group" role="group">
+					<a asp-controller="Category" asp-action="Edit" class="btn btn-primary mx-2">
+									<i class="bi bi-pencil-square"></i> Edit
+					</a>
+					<a aspp-controller="Category" asp-action="Delete" class="btn btn-danger mx-2">
+									<i class="bi bi-trash-fill"></i> Delete
+								</a>
+					</div>
+				</td>
+			</tr> 
+
 		}
 			
 	</tbody>

@@ -7,20 +7,23 @@
 				<h1 class="text-primary">Create Category</h1>
 				<hr/>
 			</div>
+			@* <div asp-validation-summary="All"></div> *@
 			<div class="row">
 				<div class="col-6 col-md-3">
-					<label>Category Name</label>
+					<label asp-for="Name1"></label>
 					</div>
 				<div class="col-6 col-md-3">
-					<input type="text" placeholder="Enter Name" class="form-control" />
+					<input asp-for="Name1" placeholder="Enter Name" class="form-control" />
+					<span asp-validation-for="Name1" class="text-danger"></span>
 					</div>
 			</div>
 			<div class="row">
 				 <div class="col-6 col-md-3 pt-2 pb-2">
-					 <label>Display Order</label>
+					 <label asp-for="DisplayOrder"></label>
 				 </div>
 				<div class="col-6 col-md-3 pt-2 pb-2">
-					<input type="text" placeholder="Enter Order" class="form-control" />
+					<input asp-for="DisplayOrder" placeholder="Enter Order" class="form-control" />
+					<span asp-validation-for="DisplayOrder" class="text-danger"></span>
 				 </div>
 			</div>
 			<div class="row">
@@ -35,3 +38,10 @@
 		</div>
 	</div>
 </form>
+
+@section Scripts{
+				@{
+		<partial name="_ValidationScriptsPartial"></partial>
+		//	This is the partial view that contains the validation scripts
+				}
+		    }
