@@ -1,0 +1,48 @@
+﻿@model Category // Creating Class Name
+
+<form method="post">
+	<div class="container border">
+		<div class=" pt-4 pd-3">
+			<div class="row">
+				<h1 class="text-primary">Edit Category</h1>
+				<hr />
+			</div>
+			@* <div asp-validation-summary="All"></div> *@
+			<input hidden asp-for="ID" />	<!-- Hidden Field for ID -->
+			<div class="row">
+				<div class="col-6 col-md-3">
+					<label asp-for="Name1"></label>
+				</div>
+				<div class="col-6 col-md-3">
+					<input asp-for="Name1" placeholder="Enter Name" class="form-control" />
+					<span asp-validation-for="Name1" class="text-danger"></span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-6 col-md-3 pt-2 pb-2">
+					<label asp-for="DisplayOrder"></label>
+				</div>
+				<div class="col-6 col-md-3 pt-2 pb-2">
+					<input asp-for="DisplayOrder" placeholder="Enter Order" class="form-control" />
+					<span asp-validation-for="DisplayOrder" class="text-danger"></span>
+				</div>
+			</div>
+			<div class="row">
+				@* padding-top , padding-bottom *@
+				<div class="col-6 col-md-3 pb-2 ">
+					<button type="submit" class="btn btn-primary form-control">Edit</button>
+				</div>
+				<div class="col-6 col-md-3 pb-2">
+					<a asp-controller="Category" asp-action="Index" class="btn btn-outline-secondary form-control">Back to List</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+
+@section Scripts {
+	@{
+		<partial name="_ValidationScriptsPartial"></partial>
+		//	This is the partial view that contains the validation scripts
+	}
+}
